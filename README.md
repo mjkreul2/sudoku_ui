@@ -27,3 +27,5 @@ If so, do the following:
 - [ ] Reduce the amount of memory used by library
 - [ ] Figure out how to add C Sudoku Solver to this repo so it is always up to date 
 - [ ] Fix the C repo to be a fork of the old one 
+- [ ] Add window to input users sudoku puzzle
+- 

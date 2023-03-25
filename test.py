@@ -56,6 +56,11 @@ def print_board(arr=np.zeros(shape=(9, 9), dtype=int)) :
     #end for
     board.set(str_to_add)
 
+def read_input(str=None) :
+    if str==None :
+        pass
+
+
 def reset_box() :
     print_board()
 
