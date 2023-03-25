@@ -1,6 +1,8 @@
 # sudoku_ui
 
-This is a project that will provide a ui client for the sudoku solver made here: [Sudoku Solver](https://github.com/mjkreul2/sudoku_c/tree/pyinteg). 
+This is a project that will provide a ui client for the sudoku solver made here: [Sudoku Solver](https://github.com/mjkreul2/sudoku_c/tree/pyinteg).
+
+To input your own sudoku, simply input the numbers into the text box and press `Enter Sudoku`.  For custom sudoku puzzle inputs, `0` represents an empty space.
 
 ### Windows Users
 You may need to recompile the shared library (`libsudoku.so`) in order for python to be able to see the functions.
