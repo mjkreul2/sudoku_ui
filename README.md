@@ -2,11 +2,26 @@
 
 This is a project that will provide a ui client for the sudoku solver made here: [Sudoku Solver](https://github.com/mjkreul2/sudoku_c/tree/pyinteg).
 
-To input your own sudoku, simply input the numbers into the text box and press `Enter Sudoku`.  For custom sudoku puzzle inputs, `0` represents an empty space.
+
 
 ### How to run
 1. Open terminal and move to the directory containing the python code
 2. In the terminal type `python3 test.py`
+
+### How to input your own sudoku
+To input your own sudoku, simply input the numbers into the text box and press `Enter Sudoku`.  For custom sudoku puzzle inputs, `0` represents an empty space.  An example unsolved sudoku can be seen below:
+
+```
+380000000
+000400785
+009020300
+060090000
+800302009
+000040070
+001070500
+495006000
+000000092
+```
 
 ### Windows Users
 You may need to recompile the shared library (`libsudoku.so`) in order for python to be able to see the functions.
