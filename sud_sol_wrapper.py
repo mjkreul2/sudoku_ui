@@ -1,7 +1,5 @@
 # This is a library wrapper for the shared C library
-
 from ctypes import *
-
 import numpy as np
 
 # Import the sudoku solver library
@@ -52,11 +50,11 @@ def create_array_from_intp(intp: _int_pointer_type) -> np.array:
         if (j%9==8) :
             i+=1
 
-    #now don't forget to free mem
+    # now don't forget to free mem
     _free(intp)
     return to_ret
 
-def solve(arr: np.array) -> np.array :
+def solve(arr=np.zeros(shape=(9,9), dtype=int)) -> np.array :
     """
 
     :param arr:

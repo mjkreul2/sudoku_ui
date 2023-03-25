@@ -1,46 +1,69 @@
+from sud_sol_wrapper import *
+from tkinter import *
 
-from ctypes import *
-# Import the sudoku solver library
-_sud_lib=cdll.LoadLibrary("./libsudoku.so")
+root = Tk()
+root.title("Sudoku Solver")
+root.geometry("500x500")
+text_box = Text(root, width=38,height=13)
+text_box.grid(row=3,column=0)
 
-# ctypes declarations
-_int_array_type = c_int * 81
-_int_pointer_type = POINTER(c_int)
+frm = Frame(root)
 
-# Creating instances of shared library functions
-_solve = _sud_lib.parseIntPointer
-_free = _sud_lib.freeIntPointer
 
-# setting the inputs and return types
-_solve.argtypes = [_int_pointer_type]
-_solve.restype = _int_pointer_type
-_free.argtypes = [_int_pointer_type]
-_free.restype = None
+def print_board(arr=np.zeros(shape=(9, 9), dtype=int)) :
+    text_box.delete(1.0, "end-1c")
+    text_box.insert(index="end-1c",chars="-------------------------------------\n")
+    print("-------------------------------------")
+    l = 1
+    for i in range(0,9) :
+        text_box.insert(index="end-1c", chars="| ")
+        print("| ",end="")
+        k = 1
+        for j in range(0,9) :
+            if (arr[i][j] < 1) :
+                text_box.insert(index="end-1c", chars=" _ ")
+                print(" _ ", end="")
+            else :
+                text_box.insert(index="end-1c", chars=" " + str(arr[i][j]) + " ")
+                print(" " + str(arr[i][j]) + " ",end="")
+            # end if
+            if (k % 3 == 0) :
+                text_box.insert(index="end-1c", chars=" | ")
+                print(" | ", end="")
+            #end if
+            k+=1
+        #end for
+        text_box.insert(index="end-1c", chars="\n")
+        print()
+        if (l%3==0) :
+            text_box.insert(index="end-1c",chars="-------------------------------------\n")
+            print("-------------------------------------")
+        #end if
+        l+=1
 
-# Initialize variable
-test_array = _int_array_type()
-ret_array = _int_pointer_type()
+def reset_box() :
+    print_board()
 
-# print(test_array.contents)
+def hello_world() :
+    print("Hello, World!")
 
-for i in range(0,81) :
-    test_array[i] = c_int(0)
+def enter_button() :
+    pass
 
-print("original board")
-for i in range(0,81) :
-    print(test_array[i], end=" ")
+def run_test() :
+    test_array = solve(np.zeros(shape=(9, 9), dtype=int))
+    print()
+    print("Output via python:")
+    print()
+    print_board(test_array)
 
-print("")
-print("solving board")
-ret_array = _solve(cast(test_array, _int_pointer_type))
 
-print("solved board")
+frm.grid()
+print_board()
+Label(frm, text="Hello World!").grid(column=0, row=0)
 
-for i in range(0,81) :
-    print(ret_array[i], end=" ")
-
-print()
-for i in range(0,81) :
-    print(test_array[i], end=" ")
-
-_free(ret_array)
+Button(frm, text="Quit", command=root.destroy).grid(column=1,row=0)
+Button(frm, text="hello", command=hello_world).grid(column=1,row=1)
+Button(frm, text="run test", command=run_test).grid(column=1,row=2)
+Button(frm, text="reset test", command=reset_box).grid(column=1,row=3)
+root.mainloop()
