@@ -4,6 +4,10 @@ This is a project that will provide a ui client for the sudoku solver made here:
 
 To input your own sudoku, simply input the numbers into the text box and press `Enter Sudoku`.  For custom sudoku puzzle inputs, `0` represents an empty space.
 
+### How to run
+1. Open terminal and move to the directory containing the python code
+2. In the terminal type `python3 test.py`
+
 ### Windows Users
 You may need to recompile the shared library (`libsudoku.so`) in order for python to be able to see the functions.
 If so, do the following:
