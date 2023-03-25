@@ -8,21 +8,19 @@ If so, do the following:
 1. Navigate to https://github.com/mjkreul2/sudoku_c/tree/pyinteg
 2. Clone repo to your personal machine
 3. Navigate to `sudoku.h` and add `__declspec(dllexport)` in front of `parseIntPointer` and `freeIntPointer`. The header file should look like the following:
-
    ```
    __declspec(dllexport) int* parseIntPointer(int*);
    __declspec(dllexport) int* freeIntPointer(int*); 
    ```
-
 4. Save the file
 5. Now in your terminal do the following:
-   ```commandline
+   ```Terminal
    $ make clean
    $ make shared 
    ```
 6. Copy the created shared library (`libsudoku.so`) into the directory containing the python files
 
-Things to do:
+### *Things to do*:
 - [x] Successfully create and solve a sudoku puzzle 
 - [ ] Create UI interface 
 - [x] Create wrapper libraries to more elegantly use the C shared library
